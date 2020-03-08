@@ -16,6 +16,12 @@ sys.stdin=f
 ##################################
 # %%
 # 以下ペースト可
-num_list = [int(item) for item in input().split()]
-print('C', num_list)
+N = int(input())
+edge_list = [[int(item) for item in input().split()] for _ in range(N-1)]
+
+def dfs(start, cnt):
+    if cnt == 4:
+        return 1
+
+    if 
 

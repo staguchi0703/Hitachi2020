@@ -16,6 +16,18 @@ sys.stdin=f
 ##################################
 # %%
 # 以下ペースト可
-num_list = [int(item) for item in input().split()]
-print('A', num_list)
+S = input()
 
+res = []
+if len(S) % 2 == 1:
+    print('No')
+else:
+    for i in range(len(S)//2):
+        if i % 2 == 0:
+            res.append(S[2*i:2*(i+1)])
+    ans = set(res)
+    
+    if ans == {'hi'}:
+        print('Yes')
+    else:
+        print('No')

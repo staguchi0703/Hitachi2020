@@ -16,6 +16,17 @@ sys.stdin=f
 ##################################
 # %%
 # 以下ペースト可
-num_list = [int(item) for item in input().split()]
-print('B', num_list)
+import collections
+A, B, M = [int(item) for item in input().split()]
+A_list = [int(item) for item in input().split()]
+B_list = [int(item) for item in input().split()]
+M_list = [[int(item) for item in input().split()] for _ in range(M)]
 
+res_list = collections.deque()
+
+for a, b, c in M_list:
+    res_list.append(A_list[a-1] + B_list[b-1] - c)
+
+res_list.append(min(A_list) + min(B_list))
+
+print(min(res_list))

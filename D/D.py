@@ -16,6 +16,19 @@ sys.stdin=f
 ##################################
 # %%
 # 以下ペースト可
-num_list = [int(item) for item in input().split()]
-print('D',num_list)
+import numpy as np
+N, T = [int(item) for item in input().split()]
+
+shop_list = np.array([[int(item) for item in input().split()] for _ in range(N)])
+inf = float('inf')
+dp = np.array([[[inf for _ in range(N+1)] for _ in range(N+1)] for _ in range(N+1)])
+
+dp[1:,1] = [1 for _ in range(N+1)]
+
+
+for i in range(N):
+    for j in range(1, N):
+        dp[i,j+1] = dp[i, j] * shop_list[i, 0] + shop_list[i, 1] + 1 
+        dp[i, j+1, j] = inf
+print(dp)
 
